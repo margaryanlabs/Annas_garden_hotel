@@ -9,11 +9,15 @@ const outFile = path.join(outDir, 'hero-user.webp');
 const EXPECTED_BYTES = 68302;
 const EXPECTED_SHA256 = '80dcd5e3e1a3e248b8147f80b9c9ae56cfb26f29afcdf7102c4fd00949ee9e74';
 
-const parts = fs.readdirSync(partsDir)
-  .filter((name) => /^part-\d+\.txt$/.test(name))
-  .sort();
+const parts = [
+  'part-01.txt','part-02.txt','part-03.txt','part-04.txt','part-05.txt','part-06.txt','part-07.txt','part-08.txt',
+  'fix-09-00.txt','fix-09-01.txt','fix-09-02.txt','fix-09-03-00.txt','fix-09-03-01.txt','fix-09-03-02.txt','fix-09-03-03.txt',
+  'part-10.txt','part-11.txt','part-12.txt',
+];
 
-if (parts.length !== 12) throw new Error(`Expected 12 hero chunks, found ${parts.length}`);
+for (const name of parts) {
+  if (!fs.existsSync(path.join(partsDir, name))) throw new Error(`Hero chunk missing: ${name}`);
+}
 
 const encoded = parts.map((name) => fs.readFileSync(path.join(partsDir, name), 'utf8').trim()).join('');
 const buffer = Buffer.from(encoded, 'base64');
