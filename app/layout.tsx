@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const HERO = "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760841/1760841267/anna-s-garden-hotel-tbilisi-pic-19.JPEG";
+const HERO = "/media/hero-user.webp";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://annas-garden-hotel.vercel.app"),
   title: "Anna's Garden Hotel | Tbilisi",
   description:
     "Anna's Garden Hotel in Tbilisi — bright, comfortable rooms, calm interiors, free Wi‑Fi, free parking and a 24-hour front desk.",
@@ -22,5 +23,27 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}</body></html>;
+  return (
+    <html lang="en">
+      <head>
+        <style>{`
+          .hero {
+            background-image: url('/media/hero-user.webp') !important;
+            background-size: cover !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+          }
+          .hero-photo {
+            opacity: 0 !important;
+          }
+          @media (max-width: 700px) {
+            .hero {
+              background-position: 52% center !important;
+            }
+          }
+        `}</style>
+      </head>
+      <body>{children}</body>
+    </html>
+  );
 }
