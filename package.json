@@ -1,10 +1,11 @@
 {
   "name": "annas-garden-hotel",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/build-hero.mjs && next dev",
     "typecheck": "tsc --noEmit",
+    "prebuild": "node scripts/build-hero.mjs",
     "build": "next build",
     "check": "npm run typecheck && npm run build",
     "start": "next start"
@@ -17,7 +18,7 @@
   "devDependencies": {
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.3",
-    "@types/react-dom": "^19.0.2",
+    "@types/react-dom": "^19.2.2",
     "typescript": "^5.7.2"
   }
 }
