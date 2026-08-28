@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./images.css";
+import "./media-overrides.css";
 
 export const metadata: Metadata = {
   title: "Anna's Garden Hotel | Tbilisi",
@@ -11,13 +12,13 @@ export const metadata: Metadata = {
     description:
       "A calm, modern stay in Tbilisi with bright rooms, garden views and thoughtful comfort.",
     type: "website",
-    images: ["/images/hero.webp"],
+    images: ["https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760841/1760841267/anna-s-garden-hotel-tbilisi-pic-19.JPEG"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Anna's Garden Hotel | Tbilisi",
     description: "A calm, modern stay in Tbilisi.",
-    images: ["/images/hero.webp"],
+    images: ["https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760841/1760841267/anna-s-garden-hotel-tbilisi-pic-19.JPEG"],
   },
 };
 
