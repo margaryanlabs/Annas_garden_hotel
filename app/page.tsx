@@ -6,446 +6,209 @@ type Lang = "en" | "ru" | "ka";
 
 const BOOKING_URL = "https://www.booking.com/hotel/ge/annas-garden.html";
 
+const PHOTOS = [
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760840/1760840152/anna-s-garden-hotel-tbilisi-pic-57.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760864/1760864967/anna-s-garden-hotel-tbilisi-pic-53.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760840/1760840489/anna-s-garden-hotel-tbilisi-pic-16.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760859/1760859625/anna-s-garden-hotel-tbilisi-pic-49.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760840/1760840185/anna-s-garden-hotel-tbilisi-pic-9.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760856/1760856470/anna-s-garden-hotel-tbilisi-pic-38.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760858/1760858077/anna-s-garden-hotel-tbilisi-pic-65.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760860/1760860204/anna-s-garden-hotel-tbilisi-pic-50.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760840/1760840183/anna-s-garden-hotel-tbilisi-pic-8.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760841/1760841051/anna-s-garden-hotel-tbilisi-pic-18.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760840/1760840182/anna-s-garden-hotel-tbilisi-pic-63.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760842/1760842628/anna-s-garden-hotel-tbilisi-pic-26.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760842/1760842994/anna-s-garden-hotel-tbilisi-pic-29.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760857/1760857251/anna-s-garden-hotel-tbilisi-pic-41.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760842/1760842903/anna-s-garden-hotel-tbilisi-pic-28.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760840/1760840187/anna-s-garden-hotel-tbilisi-pic-11.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760867/1760867157/anna-s-garden-hotel-tbilisi-pic-68.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760840/1760840190/anna-s-garden-hotel-tbilisi-pic-13.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760840/1760840175/anna-s-garden-hotel-tbilisi-pic-5.JPEG",
+  "https://annas-garden.tbilisi-hotels.com/data/Pics/OriginalPhoto/17608/1760841/1760841267/anna-s-garden-hotel-tbilisi-pic-19.JPEG",
+];
+
 const copy = {
   en: {
-    nav: ["Rooms", "Hotel", "Gallery", "Location"],
+    nav: ["Rooms", "Story", "Gallery", "Location"],
     book: "Book your stay",
-    menu: "Menu",
     eyebrow: "ANNA'S GARDEN · TBILISI",
     title: "A quieter side of Tbilisi.",
-    intro:
-      "Bright rooms, calm details and thoughtful comfort — a modern base for discovering the city at your own pace.",
-    explore: "Explore the hotel",
-    highlights: ["Garden & courtyard views", "Free Wi‑Fi", "Free private parking", "24-hour front desk"],
-    roomsEyebrow: "STAY",
-    roomsTitle: "Light, space and a room of your own.",
-    roomsBody:
-      "Air-conditioned, soundproof rooms with private bathrooms, clean lines and the small comforts that make a city stay easy.",
+    intro: "Bright rooms, reflected light and thoughtful comfort — a calm modern base in the city.",
+    explore: "Explore the stay",
+    chapter: ["ARRIVE", "SETTLE", "BREATHE", "WANDER", "STAY"],
+    roomsEyebrow: "ROOMS",
+    roomsTitle: "Space to settle in.",
+    roomsBody: "Clean lines, soft light and the small comforts that make a city stay feel easy.",
     roomNames: ["Deluxe Double", "Deluxe Twin", "Economy Double"],
-    roomMeta: ["24 m² · queen bed · balcony", "19 m² · two beds", "15 m² · double bed"],
-    roomLinks: ["See availability", "See availability", "See availability"],
-    quote: "Made for quiet stays.",
-    quoteBody: "Fresh interiors, restful rooms and an address that lets you come back to calm.",
-    hotelEyebrow: "ANNA'S GARDEN",
-    hotelTitle: "Small scale. Thoughtful comfort.",
-    hotelBody:
-      "Anna's Garden Hotel is a modern Tbilisi stay with garden and inner-courtyard views, room service, airport transfers on request and a welcoming 24-hour front desk.",
-    ratingLabel: "Guest rating",
-    ratingWord: "Wonderful",
-    ratingSub: "Booking.com snapshot · Aug 2026",
-    categories: ["Cleanliness", "Value", "Staff"],
-    categoryScores: ["9.5", "9.5", "9.4"],
-    amenitiesTitle: "Everything you need, nothing you don't.",
-    amenities: ["Air conditioning", "Soundproof rooms", "Private bathrooms", "Flat-screen TV", "Electric kettle", "Room service", "Airport shuttle", "Laundry"],
-    galleryEyebrow: "GALLERY",
+    roomMeta: ["24 m² · queen bed · balcony", "19 m² · two beds", "15 m² · full bed"],
+    doorTitle: "Behind every door, a quieter stay.",
+    dndTitle: "Do not disturb. That’s the idea.",
+    dndBody: "A small hotel with a simple promise: clean rooms, calm nights and space to switch off.",
+    balconyTitle: "Step outside.",
+    balconyBody: "Selected rooms open onto a private balcony — a little pause between the room and the city.",
+    rating: "Guest rating",
+    wonderful: "Wonderful",
+    ratingNote: "Booking.com · 9.3 / 10",
     galleryTitle: "Light. Reflection. Quiet.",
-    locationEyebrow: "TBILISI",
-    locationTitle: "A calm base in the city.",
+    amenitiesTitle: "Everything you need. Nothing you don’t.",
+    amenities: ["Free Wi‑Fi", "Free private parking", "24-hour front desk", "Garden views", "Soundproof rooms", "Air conditioning", "Airport shuttle", "Room service"],
+    locationTitle: "A calm base in Tbilisi.",
     locationBody: "10 Shalva Mshvelidze Street, 0190 Tbilisi, Georgia.",
-    locationFacts: ["~10 km from Tbilisi International Airport", "Garden & inner-courtyard views", "Free on-site private parking"],
-    finalTitle: "Your room in Tbilisi is waiting.",
+    finalTitle: "Come back to quiet.",
     finalBody: "Check live availability and current rates on Booking.com.",
-    bookingTitle: "Plan your stay",
-    checkIn: "Check-in",
-    checkOut: "Check-out",
-    guests: "Guests",
-    continue: "Check availability",
-    close: "Close",
-    footer: "Anna's Garden Hotel · Tbilisi",
   },
   ru: {
-    nav: ["Номера", "Отель", "Галерея", "Локация"],
+    nav: ["Номера", "История", "Галерея", "Локация"],
     book: "Забронировать",
-    menu: "Меню",
     eyebrow: "ANNA'S GARDEN · ТБИЛИСИ",
     title: "Тихая сторона Тбилиси.",
-    intro:
-      "Светлые номера, спокойные детали и продуманный комфорт — современная база для знакомства с городом в своём ритме.",
+    intro: "Светлые номера, отражения и продуманный комфорт — спокойная современная база в городе.",
     explore: "Посмотреть отель",
-    highlights: ["Вид на сад и двор", "Бесплатный Wi‑Fi", "Бесплатная парковка", "Стойка 24/7"],
-    roomsEyebrow: "ПРОЖИВАНИЕ",
-    roomsTitle: "Свет, пространство и свой ритм.",
-    roomsBody:
-      "Кондиционируемые и звукоизолированные номера с собственными ванными комнатами и всем необходимым для спокойного городского отдыха.",
+    chapter: ["ПРИЕХАТЬ", "УСТРОИТЬСЯ", "ВЫДОХНУТЬ", "ПОГУЛЯТЬ", "ОСТАТЬСЯ"],
+    roomsEyebrow: "НОМЕРА",
+    roomsTitle: "Пространство, чтобы выдохнуть.",
+    roomsBody: "Чистые линии, мягкий свет и всё необходимое для спокойного отдыха в городе.",
     roomNames: ["Deluxe Double", "Deluxe Twin", "Economy Double"],
     roomMeta: ["24 м² · queen bed · балкон", "19 м² · две кровати", "15 м² · двуспальная кровать"],
-    roomLinks: ["Проверить даты", "Проверить даты", "Проверить даты"],
-    quote: "Создано для спокойного отдыха.",
-    quoteBody: "Свежий интерьер, тихие номера и место, куда приятно возвращаться после города.",
-    hotelEyebrow: "ANNA'S GARDEN",
-    hotelTitle: "Небольшой отель. Продуманный комфорт.",
-    hotelBody:
-      "Anna's Garden Hotel — современный отель в Тбилиси с видами на сад и внутренний двор, room service, трансфером по запросу и круглосуточной стойкой.",
-    ratingLabel: "Оценка гостей",
-    ratingWord: "Превосходно",
-    ratingSub: "Снимок Booking.com · август 2026",
-    categories: ["Чистота", "Цена / качество", "Персонал"],
-    categoryScores: ["9.5", "9.5", "9.4"],
-    amenitiesTitle: "Всё нужное — без лишнего.",
-    amenities: ["Кондиционер", "Звукоизоляция", "Собственная ванная", "Телевизор", "Электрочайник", "Room service", "Трансфер", "Прачечная"],
-    galleryEyebrow: "ГАЛЕРЕЯ",
+    doorTitle: "За каждой дверью — немного больше тишины.",
+    dndTitle: "Не беспокоить. В этом и идея.",
+    dndBody: "Небольшой отель с простым обещанием: чистые номера, спокойные ночи и место, где можно отключиться.",
+    balconyTitle: "Выйти на воздух.",
+    balconyBody: "В некоторых номерах есть балкон — маленькая пауза между номером и городом.",
+    rating: "Оценка гостей",
+    wonderful: "Превосходно",
+    ratingNote: "Booking.com · 9.3 / 10",
     galleryTitle: "Свет. Отражения. Тишина.",
-    locationEyebrow: "ТБИЛИСИ",
-    locationTitle: "Спокойная база в городе.",
+    amenitiesTitle: "Всё нужное. Без лишнего.",
+    amenities: ["Бесплатный Wi‑Fi", "Бесплатная парковка", "Стойка 24/7", "Вид на сад", "Звукоизоляция", "Кондиционер", "Трансфер", "Room service"],
+    locationTitle: "Спокойная база в Тбилиси.",
     locationBody: "10 Shalva Mshvelidze Street, 0190 Tbilisi, Georgia.",
-    locationFacts: ["Около 10 км до аэропорта Тбилиси", "Виды на сад и внутренний двор", "Бесплатная частная парковка"],
-    finalTitle: "Ваш номер в Тбилиси ждёт.",
+    finalTitle: "Возвращайтесь в тишину.",
     finalBody: "Проверьте актуальные даты и цены на Booking.com.",
-    bookingTitle: "Спланировать проживание",
-    checkIn: "Заезд",
-    checkOut: "Выезд",
-    guests: "Гости",
-    continue: "Проверить наличие",
-    close: "Закрыть",
-    footer: "Anna's Garden Hotel · Тбилиси",
   },
   ka: {
-    nav: ["ნომრები", "სასტუმრო", "გალერეა", "მდებარეობა"],
+    nav: ["ნომრები", "ისტორია", "გალერეა", "მდებარეობა"],
     book: "დაჯავშნა",
-    menu: "მენიუ",
     eyebrow: "ANNA'S GARDEN · თბილისი",
     title: "თბილისის მშვიდი მხარე.",
-    intro:
-      "ნათელი ოთახები, მშვიდი დეტალები და გააზრებული კომფორტი — თანამედროვე ადგილი ქალაქის საკუთარ რიტმში აღმოსაჩენად.",
+    intro: "ნათელი ოთახები, სინათლის ანარეკლები და გააზრებული კომფორტი — მშვიდი თანამედროვე ადგილი ქალაქში.",
     explore: "სასტუმროს ნახვა",
-    highlights: ["ბაღისა და ეზოს ხედები", "უფასო Wi‑Fi", "უფასო პარკინგი", "24-საათიანი რეცეფცია"],
-    roomsEyebrow: "დარჩენა",
-    roomsTitle: "სინათლე, სივრცე და საკუთარი რიტმი.",
-    roomsBody:
-      "კონდიცირებული და ხმისგან იზოლირებული ნომრები პირადი სააბაზანოებით და მშვიდი დასვენებისთვის საჭირო კომფორტით.",
+    chapter: ["ჩამოსვლა", "მოწყობა", "ამოსუნთქვა", "გასეირნება", "დარჩენა"],
+    roomsEyebrow: "ნომრები",
+    roomsTitle: "სივრცე დასვენებისთვის.",
+    roomsBody: "სუფთა ხაზები, რბილი სინათლე და ყველაფერი, რაც მშვიდ ქალაქურ დასვენებას სჭირდება.",
     roomNames: ["Deluxe Double", "Deluxe Twin", "Economy Double"],
     roomMeta: ["24 მ² · queen bed · აივანი", "19 მ² · ორი საწოლი", "15 მ² · ორმაგი საწოლი"],
-    roomLinks: ["თავისუფალი თარიღები", "თავისუფალი თარიღები", "თავისუფალი თარიღები"],
-    quote: "შექმნილია მშვიდი დასვენებისთვის.",
-    quoteBody: "ახალი ინტერიერი, მშვიდი ნომრები და ადგილი, სადაც ქალაქის შემდეგ დაბრუნება სასიამოვნოა.",
-    hotelEyebrow: "ANNA'S GARDEN",
-    hotelTitle: "პატარა მასშტაბი. გააზრებული კომფორტი.",
-    hotelBody:
-      "Anna's Garden Hotel — თანამედროვე სასტუმრო თბილისში ბაღისა და შიდა ეზოს ხედებით, room service-ით, ტრანსფერით მოთხოვნით და 24-საათიანი რეცეფციით.",
-    ratingLabel: "სტუმრების შეფასება",
-    ratingWord: "შესანიშნავი",
-    ratingSub: "Booking.com · აგვისტო 2026",
-    categories: ["სისუფთავე", "ფასი / ხარისხი", "პერსონალი"],
-    categoryScores: ["9.5", "9.5", "9.4"],
-    amenitiesTitle: "ყველაფერი საჭირო — ზედმეტის გარეშე.",
-    amenities: ["კონდიციონერი", "ხმის იზოლაცია", "პირადი სააბაზანო", "ტელევიზორი", "ელექტრო ჩაიდანი", "Room service", "ტრანსფერი", "სამრეცხაო"],
-    galleryEyebrow: "გალერეა",
+    doorTitle: "ყოველი კარის მიღმა — მეტი სიმშვიდე.",
+    dndTitle: "არ შემაწუხოთ. სწორედ ესაა იდეა.",
+    dndBody: "პატარა სასტუმრო მარტივი დაპირებით: სუფთა ოთახები, მშვიდი ღამეები და სივრცე დასვენებისთვის.",
+    balconyTitle: "გადით აივანზე.",
+    balconyBody: "ზოგიერთ ნომერს აქვს აივანი — პატარა პაუზა ოთახსა და ქალაქს შორის.",
+    rating: "სტუმრების შეფასება",
+    wonderful: "შესანიშნავი",
+    ratingNote: "Booking.com · 9.3 / 10",
     galleryTitle: "სინათლე. ანარეკლი. სიმშვიდე.",
-    locationEyebrow: "თბილისი",
-    locationTitle: "მშვიდი ბაზა ქალაქში.",
+    amenitiesTitle: "ყველაფერი საჭირო. ზედმეტის გარეშე.",
+    amenities: ["უფასო Wi‑Fi", "უფასო პარკინგი", "24-საათიანი რეცეფცია", "ბაღის ხედი", "ხმის იზოლაცია", "კონდიციონერი", "ტრანსფერი", "Room service"],
+    locationTitle: "მშვიდი ადგილი თბილისში.",
     locationBody: "10 Shalva Mshvelidze Street, 0190 Tbilisi, Georgia.",
-    locationFacts: ["დაახლოებით 10 კმ თბილისის აეროპორტამდე", "ბაღისა და შიდა ეზოს ხედები", "უფასო კერძო პარკინგი"],
-    finalTitle: "თქვენი ნომერი თბილისში გელოდებათ.",
-    finalBody: "იხილეთ ხელმისაწვდომობა და მიმდინარე ფასები Booking.com-ზე.",
-    bookingTitle: "დაგეგმეთ დარჩენა",
-    checkIn: "შესვლა",
-    checkOut: "გასვლა",
-    guests: "სტუმრები",
-    continue: "ხელმისაწვდომობის ნახვა",
-    close: "დახურვა",
-    footer: "Anna's Garden Hotel · თბილისი",
+    finalTitle: "დაუბრუნდით სიმშვიდეს.",
+    finalBody: "შეამოწმეთ თავისუფალი თარიღები და მიმდინარე ფასები Booking.com-ზე.",
   },
 } as const;
 
-const slots = [
-  "atlas-0",
-  "atlas-1",
-  "atlas-2",
-  "atlas-3",
-  "atlas-4",
-  "atlas-5",
-  "atlas-6",
-  "atlas-7",
-];
-
 export default function Home() {
   const [lang, setLang] = useState<Lang>("en");
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [bookingOpen, setBookingOpen] = useState(false);
-  const [checkIn, setCheckIn] = useState("");
-  const [checkOut, setCheckOut] = useState("");
-  const [guests, setGuests] = useState("2");
-  const t = copy[lang];
+  const [menu, setMenu] = useState(false);
+  const [booking, setBooking] = useState(false);
+  const [lightbox, setLightbox] = useState<number | null>(null);
+  const [progress, setProgress] = useState(0);
+  const [cursor, setCursor] = useState({ x: -100, y: -100, label: "" });
+  const t = useMemo(() => copy[lang], [lang]);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("annas-language") as Lang | null;
-    if (saved && copy[saved]) setLang(saved);
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
+    };
+    const onMove = (e: MouseEvent) => setCursor((c) => ({ ...c, x: e.clientX, y: e.clientY }));
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("mousemove", onMove);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("mousemove", onMove);
+    };
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem("annas-language", lang);
-    document.documentElement.lang = lang;
-  }, [lang]);
+    document.body.style.overflow = menu || booking || lightbox !== null ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menu, booking, lightbox]);
 
-  const bookingHref = useMemo(() => {
-    const params = new URLSearchParams();
-    if (checkIn) params.set("checkin", checkIn);
-    if (checkOut) params.set("checkout", checkOut);
-    params.set("group_adults", guests);
-    return `${BOOKING_URL}?${params.toString()}`;
-  }, [checkIn, checkOut, guests]);
-
-  const selectLang = (next: Lang) => {
-    setLang(next);
-    setMenuOpen(false);
-  };
+  const openPhoto = (i: number) => setLightbox(i);
 
   return (
-    <main>
-      <a className="skip-link" href="#content">Skip to content</a>
+    <>
+      <a className="skip-link" href="#main">Skip to content</a>
+      <div className="garden-cursor" style={{ transform: `translate3d(${cursor.x}px,${cursor.y}px,0)` }}>{cursor.label && <span>{cursor.label}</span>}</div>
+      <svg className="garden-line" viewBox="0 0 100 1000" aria-hidden="true">
+        <path pathLength="1" style={{ strokeDashoffset: 1 - progress }} d="M54 0 C18 95 88 160 48 250 C10 335 88 400 52 505 C22 594 80 658 49 748 C20 835 72 910 44 1000" />
+        <path className="garden-leaf leaf-a" d="M50 265 C24 250 19 226 23 211 C46 221 57 239 50 265Z" />
+        <path className="garden-leaf leaf-b" d="M53 515 C77 493 88 470 84 451 C61 461 48 484 53 515Z" />
+        <path className="garden-leaf leaf-c" d="M48 760 C21 747 16 721 20 705 C42 714 56 735 48 760Z" />
+      </svg>
 
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="Anna's Garden Hotel home">
-          <span>ANNA'S</span>
-          <small>GARDEN HOTEL</small>
-        </a>
-        <nav className="desktop-nav" aria-label="Main navigation">
-          <a href="#rooms">{t.nav[0]}</a>
-          <a href="#hotel">{t.nav[1]}</a>
-          <a href="#gallery">{t.nav[2]}</a>
-          <a href="#location">{t.nav[3]}</a>
-        </nav>
-        <div className="header-actions">
-          <div className="langs" aria-label="Language">
-            {(["en", "ru", "ka"] as Lang[]).map((code) => (
-              <button
-                className={lang === code ? "active" : ""}
-                key={code}
-                onClick={() => selectLang(code)}
-              >
-                {code.toUpperCase()}
-              </button>
-            ))}
-          </div>
-          <button className="header-book" onClick={() => setBookingOpen(true)}>
-            {t.book}
-          </button>
-          <button
-            className="menu-button"
-            aria-expanded={menuOpen}
-            aria-label={t.menu}
-            onClick={() => setMenuOpen(true)}
-          >
-            <span />
-            <span />
-          </button>
+      <header className="topbar">
+        <a href="#" className="brand" aria-label="Anna's Garden Hotel home"><span>ANNA’S</span><strong>GARDEN</strong><small>TBILISI</small></a>
+        <nav className="desktop-nav">{t.nav.map((item, i) => <a key={item} href={["#rooms","#story","#gallery","#location"][i]}>{item}</a>)}</nav>
+        <div className="top-actions">
+          <div className="langs">{(["en","ru","ka"] as Lang[]).map((l)=><button key={l} onClick={()=>setLang(l)} className={lang===l?"active":""}>{l.toUpperCase()}</button>)}</div>
+          <button className="book-ghost" onClick={()=>setBooking(true)}>{t.book}</button>
+          <button className="menu-btn" onClick={()=>setMenu(true)} aria-label="Open menu"><i/><i/></button>
         </div>
       </header>
 
-      <section className="hero" id="top">
-        <div className="hero-image" aria-hidden="true" />
-        <div className="hero-shade" aria-hidden="true" />
-        <div className="hero-content">
-          <p className="eyebrow hero-eyebrow">{t.eyebrow}</p>
-          <h1>{t.title}</h1>
-          <p className="hero-copy">{t.intro}</p>
-          <div className="hero-ctas">
-            <button className="primary-cta" onClick={() => setBookingOpen(true)}>
-              {t.book}
-            </button>
-            <a className="text-cta" href="#rooms">
-              <span className="arrow-circle">↓</span>
-              {t.explore}
-            </a>
-          </div>
-        </div>
-        <div className="hero-highlights" aria-label="Hotel highlights">
-          {t.highlights.map((item, i) => (
-            <div key={item}>
-              <span className="highlight-index">0{i + 1}</span>
-              <span>{item}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      <main id="main">
+        <section className="hero">
+          <div className="hero-media" /><div className="hero-shade" /><div className="botanical-shadow shadow-hero" />
+          <div className="hero-copy"><p className="kicker">{t.eyebrow}</p><h1>{t.title}</h1><p className="lede">{t.intro}</p><div className="hero-actions"><button className="btn-primary" onClick={()=>setBooking(true)}>{t.book}</button><a className="btn-text" href="#rooms">{t.explore}<span>↓</span></a></div></div>
+          <div className="chapter-rail">{t.chapter.map((x,i)=><div key={x}><span>0{i+1}</span><strong>{x}</strong></div>)}</div>
+        </section>
 
-      <div id="content" />
+        <section className="intro-section section-light"><div className="botanical-shadow shadow-a" /><p className="kicker">ANNA’S GARDEN</p><h2>Garden without the cliché.</h2><p>Light, space, doors, reflections and the calm of a small hotel — that is the visual language of this stay.</p></section>
 
-      <section className="section rooms-section" id="rooms">
-        <div className="section-head">
-          <p className="eyebrow">{t.roomsEyebrow}</p>
-          <h2>{t.roomsTitle}</h2>
-          <p>{t.roomsBody}</p>
-        </div>
+        <section id="rooms" className="rooms-story">
+          <div className="rooms-heading"><p className="kicker">{t.roomsEyebrow}</p><h2>{t.roomsTitle}</h2><p>{t.roomsBody}</p></div>
+          {[0,1,2].map((room,i)=>(<article className={`room-story room-story-${i+1}`} key={t.roomNames[i]}><div className="room-photo-wrap" onMouseEnter={()=>setCursor(c=>({...c,label:"VIEW"}))} onMouseLeave={()=>setCursor(c=>({...c,label:""}))} onClick={()=>openPhoto([3,6,9][i])}><img src={PHOTOS[[3,6,9][i]]} alt={t.roomNames[i]} loading={i===0?"eager":"lazy"} /></div><div className="room-info"><span>0{i+1}</span><div><h3>{t.roomNames[i]}</h3><p>{t.roomMeta[i]}</p></div><button onClick={()=>setBooking(true)}>Availability ↗</button></div></article>))}
+        </section>
 
-        <div className="rooms-grid">
-          {[4, 5, 2].map((slot, i) => (
-            <article className={`room-card room-${i + 1}`} key={t.roomNames[i]}>
-              <div className={`atlas ${slots[slot]}`} role="img" aria-label={t.roomNames[i]} />
-              <div className="room-caption">
-                <div>
-                  <span>0{i + 1}</span>
-                  <h3>{t.roomNames[i]}</h3>
-                  <p>{t.roomMeta[i]}</p>
-                </div>
-                <button onClick={() => setBookingOpen(true)}>{t.roomLinks[i]} ↗</button>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+        <section id="story" className="door-chapter"><div className="corridor-media" /><div className="door-overlay"><span className="chapter-number">03 / BREATHE</span><h2>{t.doorTitle}</h2></div></section>
 
-      <section className="editorial-break">
-        <div className={`atlas ${slots[3]}`} role="img" aria-label="Anna's Garden Hotel corridor" />
-        <div className="editorial-copy">
-          <p className="eyebrow">ANNA'S GARDEN</p>
-          <h2>{t.quote}</h2>
-          <p>{t.quoteBody}</p>
-        </div>
-      </section>
+        <section className="dnd-section"><div className="dnd-photo" /><div className="dnd-copy"><p className="kicker">QUIET, PLEASE</p><h2>{t.dndTitle}</h2><p>{t.dndBody}</p><div className="tiny-leaf" aria-hidden="true">⌁</div></div></section>
 
-      <section className="section hotel-section" id="hotel">
-        <div className="hotel-copy">
-          <p className="eyebrow">{t.hotelEyebrow}</p>
-          <h2>{t.hotelTitle}</h2>
-          <p>{t.hotelBody}</p>
-          <a href="#location" className="underlined-link">{t.nav[3]} ↘</a>
-        </div>
-        <div className="hotel-images">
-          <div className={`atlas ${slots[0]}`} />
-          <div className={`atlas ${slots[1]}`} />
-        </div>
-      </section>
+        <section className="balcony-section"><div className="balcony-media" /><div className="balcony-card"><span>04 / WANDER</span><h2>{t.balconyTitle}</h2><p>{t.balconyBody}</p></div></section>
 
-      <section className="rating-section" aria-label="Guest review scores">
-        <div className="rating-main">
-          <p className="eyebrow">{t.ratingLabel}</p>
-          <strong>9.3</strong>
-          <h2>{t.ratingWord}</h2>
-          <p>{t.ratingSub}</p>
-        </div>
-        <div className="rating-categories">
-          {t.categories.map((label, i) => (
-            <div key={label}>
-              <span>{label}</span>
-              <strong>{t.categoryScores[i]}</strong>
-              <i><b style={{ width: `${Number(t.categoryScores[i]) * 10}%` }} /></i>
-            </div>
-          ))}
-        </div>
-      </section>
+        <section className="rating-section"><div className="rating-score"><p className="kicker">{t.rating}</p><strong>9.3</strong><h2>{t.wonderful}</h2><p>{t.ratingNote}</p></div><div className="rating-bars">{[["Cleanliness","9.5"],["Value","9.5"],["Staff","9.4"],["Comfort","9.3"],["Location","8.9"]].map(([label,score])=><div key={label}><span>{label}</span><b>{score}</b><i><em style={{width:`${Number(score)*10}%`}}/></i></div>)}</div></section>
 
-      <section className="section amenities-section">
-        <div>
-          <p className="eyebrow">COMFORT</p>
-          <h2>{t.amenitiesTitle}</h2>
-        </div>
-        <div className="amenities-grid">
-          {t.amenities.map((item, i) => (
-            <div key={item}>
-              <span>{String(i + 1).padStart(2, "0")}</span>
-              <p>{item}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+        <section className="amenities-section section-light"><div><p className="kicker">GOOD TO KNOW</p><h2>{t.amenitiesTitle}</h2></div><div className="amenities-list">{t.amenities.map((a,i)=><div key={a}><span>0{i+1}</span><p>{a}</p></div>)}</div></section>
 
-      <section className="gallery-section" id="gallery">
-        <div className="section gallery-heading">
-          <p className="eyebrow">{t.galleryEyebrow}</p>
-          <h2>{t.galleryTitle}</h2>
-        </div>
-        <div className="gallery-grid">
-          {slots.map((slot, i) => (
-            <div
-              key={slot}
-              className={`gallery-item gallery-item-${i + 1} atlas ${slot}`}
-              role="img"
-              aria-label={`Anna's Garden Hotel ${i + 1}`}
-            />
-          ))}
-        </div>
-      </section>
+        <section id="gallery" className="gallery-section"><div className="gallery-head"><p className="kicker">GALLERY</p><h2>{t.galleryTitle}</h2><p>20 photographs. One small hotel. Open any frame.</p></div><div className="gallery-grid">{PHOTOS.slice(0,16).map((src,i)=><button className={`gallery-tile tile-${i+1}`} key={src} onClick={()=>openPhoto(i)} onMouseEnter={()=>setCursor(c=>({...c,label:"OPEN"}))} onMouseLeave={()=>setCursor(c=>({...c,label:""}))}><img src={src} alt={`Anna's Garden Hotel photo ${i+1}`} loading="lazy" /><span>{String(i+1).padStart(2,"0")}</span></button>)}</div></section>
 
-      <section className="location-section" id="location">
-        <div className="location-copy">
-          <p className="eyebrow">{t.locationEyebrow}</p>
-          <h2>{t.locationTitle}</h2>
-          <p className="address">{t.locationBody}</p>
-          <ul>
-            {t.locationFacts.map((fact) => <li key={fact}>{fact}</li>)}
-          </ul>
-          <a
-            className="underlined-link"
-            href="https://www.google.com/maps/search/?api=1&query=10+Shalva+Mshvelidze+Street+Tbilisi"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Google Maps ↗
-          </a>
-        </div>
-        <iframe
-          title="Anna's Garden Hotel location"
-          src="https://www.google.com/maps?q=10%20Shalva%20Mshvelidze%20Street%20Tbilisi&output=embed"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      </section>
+        <section id="location" className="location-section"><div className="location-copy"><p className="kicker">TBILISI</p><h2>{t.locationTitle}</h2><p>{t.locationBody}</p><a href="https://www.google.com/maps/search/?api=1&query=10+Shalva+Mshvelidze+Street+Tbilisi" target="_blank" rel="noreferrer">Open in Maps ↗</a></div><iframe title="Anna's Garden Hotel map" loading="lazy" src="https://www.google.com/maps?q=10%20Shalva%20Mshvelidze%20Street%20Tbilisi&output=embed" /></section>
 
-      <section className="final-cta">
-        <p className="eyebrow">ANNA'S GARDEN · TBILISI</p>
-        <h2>{t.finalTitle}</h2>
-        <p>{t.finalBody}</p>
-        <button className="light-cta" onClick={() => setBookingOpen(true)}>{t.book} ↗</button>
-      </section>
+        <section className="final-section"><div className="botanical-shadow shadow-final" /><p className="kicker">05 / STAY</p><h2>{t.finalTitle}</h2><p>{t.finalBody}</p><button className="btn-primary invert" onClick={()=>setBooking(true)}>{t.book}</button><div className="brand-mark">G</div></section>
+      </main>
 
-      <footer>
-        <div className="footer-brand">
-          <span>ANNA'S</span>
-          <small>GARDEN HOTEL</small>
-        </div>
-        <p>{t.footer}</p>
-        <a href={BOOKING_URL} target="_blank" rel="noreferrer">Booking.com ↗</a>
-      </footer>
+      <footer><div className="footer-brand"><span>ANNA’S</span><strong>GARDEN</strong><small>TBILISI</small></div><p>10 Shalva Mshvelidze Street · Tbilisi</p><a href={BOOKING_URL} target="_blank" rel="noreferrer">Booking.com ↗</a></footer>
 
-      {menuOpen && (
-        <div className="mobile-menu" role="dialog" aria-modal="true">
-          <div className="mobile-menu-top">
-            <div className="footer-brand"><span>ANNA'S</span><small>GARDEN HOTEL</small></div>
-            <button onClick={() => setMenuOpen(false)}>×</button>
-          </div>
-          <nav>
-            {["rooms", "hotel", "gallery", "location"].map((id, i) => (
-              <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>
-                <span>0{i + 1}</span>{t.nav[i]}
-              </a>
-            ))}
-          </nav>
-          <div className="mobile-langs">
-            {(["en", "ru", "ka"] as Lang[]).map((code) => (
-              <button key={code} onClick={() => selectLang(code)}>{code.toUpperCase()}</button>
-            ))}
-          </div>
-          <button className="mobile-book" onClick={() => { setMenuOpen(false); setBookingOpen(true); }}>
-            {t.book}
-          </button>
-        </div>
-      )}
+      {menu && <div className="mobile-menu"><div className="mobile-top"><div className="footer-brand"><span>ANNA’S</span><strong>GARDEN</strong><small>TBILISI</small></div><button onClick={()=>setMenu(false)}>×</button></div><nav>{t.nav.map((item,i)=><a key={item} onClick={()=>setMenu(false)} href={["#rooms","#story","#gallery","#location"][i]}><span>0{i+1}</span>{item}</a>)}</nav><div className="mobile-langs">{(["en","ru","ka"] as Lang[]).map(l=><button key={l} onClick={()=>setLang(l)}>{l.toUpperCase()}</button>)}</div><button className="btn-primary" onClick={()=>{setMenu(false);setBooking(true)}}>{t.book}</button></div>}
 
-      {bookingOpen && (
-        <div className="booking-backdrop" role="presentation" onMouseDown={() => setBookingOpen(false)}>
-          <aside
-            className="booking-drawer"
-            role="dialog"
-            aria-modal="true"
-            aria-label={t.bookingTitle}
-            onMouseDown={(e) => e.stopPropagation()}
-          >
-            <button className="booking-close" onClick={() => setBookingOpen(false)} aria-label={t.close}>×</button>
-            <p className="eyebrow">ANNA'S GARDEN · TBILISI</p>
-            <h2>{t.bookingTitle}</h2>
-            <label>{t.checkIn}<input type="date" value={checkIn} onChange={(e) => setCheckIn(e.target.value)} /></label>
-            <label>{t.checkOut}<input type="date" value={checkOut} min={checkIn || undefined} onChange={(e) => setCheckOut(e.target.value)} /></label>
-            <label>{t.guests}
-              <select value={guests} onChange={(e) => setGuests(e.target.value)}>
-                <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-              </select>
-            </label>
-            <a className="booking-submit" href={bookingHref} target="_blank" rel="noreferrer">{t.continue} ↗</a>
-            <p className="booking-note">Booking is completed securely on Booking.com.</p>
-          </aside>
-        </div>
-      )}
-    </main>
+      {booking && <div className="booking-backdrop" onMouseDown={(e)=>{if(e.currentTarget===e.target)setBooking(false)}}><div className="booking-drawer"><button className="close" onClick={()=>setBooking(false)}>×</button><p className="kicker">ANNA’S GARDEN</p><h2>Plan your stay.</h2><label>Check-in<input type="date"/></label><label>Check-out<input type="date"/></label><label>Guests<select defaultValue="2"><option>1</option><option>2</option><option>3</option><option>4</option></select></label><a className="btn-primary booking-link" href={BOOKING_URL} target="_blank" rel="noreferrer">Check availability ↗</a><p className="booking-note">Live rates and availability are provided by Booking.com.</p></div></div>}
+
+      {lightbox !== null && <div className="lightbox"><button className="lightbox-close" onClick={()=>setLightbox(null)}>×</button><button className="lightbox-prev" onClick={()=>setLightbox((lightbox-1+PHOTOS.length)%PHOTOS.length)}>←</button><img src={PHOTOS[lightbox]} alt={`Anna's Garden Hotel photo ${lightbox+1}`} /><div className="lightbox-meta"><span>{String(lightbox+1).padStart(2,"0")} / {PHOTOS.length}</span><strong>ANNA’S GARDEN · TBILISI</strong></div><button className="lightbox-next" onClick={()=>setLightbox((lightbox+1)%PHOTOS.length)}>→</button></div>}
+    </>
   );
 }
