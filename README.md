@@ -1,5 +1,5 @@
-# Anna's Garden Hotel — website
+# Anna's Garden Hotel
 
-Production website for Anna's Garden Hotel in Tbilisi.
+Boutique hotel website for Anna's Garden Hotel, Tbilisi.
 
-Release v1.0.1 restores high-resolution hero and gallery media.
+Final visual pass: refined hero, responsive gallery, room story, booking CTA, Garden visual system.
