@@ -1,11 +1,10 @@
 {
   "name": "annas-garden-hotel",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/decode-assets.mjs && next dev",
+    "dev": "next dev",
     "typecheck": "tsc --noEmit",
-    "prebuild": "node scripts/decode-assets.mjs",
     "build": "next build",
     "check": "npm run typecheck && npm run build",
     "start": "next start"
