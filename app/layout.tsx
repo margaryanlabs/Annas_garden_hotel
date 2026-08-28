@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./images.css";
 
 export const metadata: Metadata = {
   title: "Anna's Garden Hotel | Tbilisi",
