@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const HERO = "/media/hero-user.webp";
+const HERO = "/media/hero-user.webp?v=exact-hero-20260828";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://annas-garden-hotel.vercel.app"),
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <style>{`
           .hero {
-            background-image: url('/media/hero-user.webp') !important;
+            background-image: url('/media/hero-user.webp?v=exact-hero-20260828') !important;
             background-size: cover !important;
             background-position: center center !important;
             background-repeat: no-repeat !important;
