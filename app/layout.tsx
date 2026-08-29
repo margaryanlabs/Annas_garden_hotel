@@ -8,6 +8,7 @@ import "./reviews.css";
 import "./offers.css";
 import "./payments.css";
 import "./guest-os.css";
+import "./guest-luxe.css";
 import "./guest-overrides.css";
 import "./reception.css";
 import "./reception-ops.css";
@@ -49,9 +50,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   </head><body>
     {children}<SiteEnhancements />
     <nav className="seo-footer-links" aria-label="Hotel information">
-      <a href="/rooms">Rooms</a><a href="/faq">FAQ</a><a href="/contact">Contact</a><a href="/tbilisi-guide">Tbilisi Guide</a><a href="/guest">Guest Guide</a><a href="/pay">Payment</a><a href="/terms">Terms</a><a href="/refund-policy">Refunds</a><a href="/privacy">Privacy</a><a href="/service-policy">Service</a><a href="/ru" lang="ru">RU</a><a href="/ka" lang="ka">KA</a><a href={BOOKING_URL} target="_blank" rel="noreferrer">Booking.com ↗</a>
+      <a href="/rooms">Rooms</a><a href="/faq">FAQ</a><a href="/contact">Contact</a><a href="/tbilisi-guide">Tbilisi Guide</a><a href="/guest">Guest Hub</a><a href="/guest/qr">Guest QR</a><a href="/pay">Payment</a><a href="/terms">Terms</a><a href="/refund-policy">Refunds</a><a href="/privacy">Privacy</a><a href="/service-policy">Service</a><a href="/ru" lang="ru">RU</a><a href="/ka" lang="ka">KA</a><a href={BOOKING_URL} target="_blank" rel="noreferrer">Booking.com ↗</a>
     </nav>
     <aside className="booking-dock" aria-label="Quick hotel actions"><a href="/#plan-your-stay">Dates</a><a href={BOOKING_URL} target="_blank" rel="noreferrer">Book</a><a href="/pay">Pay</a><a href={PHONE_HREF}>Call</a><a href={MAPS_URL} target="_blank" rel="noreferrer">Map</a></aside>
+    <a className="guest-access-fab" href="/guest"><span>ALREADY STAYING?</span><strong>Guest Hub</strong></a>
+    <a className="guest-qr-fab" href="/guest/qr" aria-label="Open Guest QR">QR</a>
     {GA_ID ? <><Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" /><Script id="google-analytics" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});`}</Script></> : null}
   </body></html>;
 }
