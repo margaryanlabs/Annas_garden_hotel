@@ -1,0 +1,1 @@
+body:has(.reception-command)>.seo-footer-links,body:has(.reception-command)>.booking-dock,body:has(.reception-login)>.seo-footer-links,body:has(.reception-login)>.booking-dock{display:none!important}body:has(.reception-command),body:has(.reception-login){margin:0;background:#eef0eb}
