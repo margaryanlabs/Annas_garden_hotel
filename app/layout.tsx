@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import "./seo.css";
 import "./stay-tools.css";
+import "./guide.css";
 import SiteEnhancements from "./components/SiteEnhancements";
 import { BOOKING_URL, HOTEL_AMENITIES, MAPS_URL, PHONE_DISPLAY, PHONE_HREF, SITE_URL } from "../lib/site";
 
@@ -106,7 +107,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <a href="/rooms">Rooms</a><a href="/faq">FAQ</a><a href="/contact">Contact & Location</a><a href="/tbilisi-guide">Tbilisi Guide</a><a href="/ru" lang="ru">RU</a><a href="/ka" lang="ka">KA</a><a href={BOOKING_URL} target="_blank" rel="noreferrer">Booking.com ↗</a>
         </nav>
         <aside className="booking-dock" aria-label="Quick hotel actions">
-          <a href="#plan-your-stay">Dates</a><a href={BOOKING_URL} target="_blank" rel="noreferrer">Book</a><a href={PHONE_HREF}>Call</a><a href={MAPS_URL} target="_blank" rel="noreferrer">Map</a>
+          <a href="/#plan-your-stay">Dates</a><a href={BOOKING_URL} target="_blank" rel="noreferrer">Book</a><a href={PHONE_HREF}>Call</a><a href={MAPS_URL} target="_blank" rel="noreferrer">Map</a>
         </aside>
         {GA_ID ? (
           <>
