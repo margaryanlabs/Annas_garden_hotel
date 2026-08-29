@@ -17,8 +17,10 @@ Production hotel website for Anna's Garden Hotel, Tbilisi.
 - Check-dates flow that opens Booking.com with dates/guests
 - WhatsApp concierge and airport-transfer request flow
 - Room comparison
-- Digital guest service hub at `/guest`
-- Printable guest QR at `/guest/qr`
+- Personalized Guest OS at `/guest`
+- Room-aware printable Guest QR at `/guest/qr?room=204`
+- Guest request tickets with local request history
+- Optional operator webhook for housekeeping/towels/checkout/transfer/feedback requests
 - Guest payment page at `/pay`
 - TBC Checkout server adapter
 - Optional Georgian bank-transfer instructions
@@ -46,6 +48,24 @@ NEXT_PUBLIC_WHATSAPP_NUMBER=995599521751
 # Optional direct Google review URL from the verified Business Profile.
 NEXT_PUBLIC_GOOGLE_REVIEW_URL=
 ```
+
+## Guest OS / request delivery
+
+The guest hub stores the guest name, room, language, checkout date and recent ticket history only in that guest's browser. The hotel receives guest data only when the guest actively sends a request.
+
+Every request receives an `AG-XXXXXX` ticket ID. If no operator backend is configured, `/api/guest/request` returns a prefilled WhatsApp URL and the guest sends it to reception. If an operator webhook is configured, requests are delivered server-to-server instead.
+
+```bash
+# Optional HTTPS endpoint for the owner's future operator dashboard / CRM / automation.
+GUEST_REQUEST_WEBHOOK_URL=
+
+# Optional shared bearer token sent to that webhook.
+GUEST_REQUEST_WEBHOOK_TOKEN=
+```
+
+Webhook payload event name: `hotel.guest_request`. It includes ticket ID, request type, label, guest name, room, language, checkout date, note and creation timestamp.
+
+The current UI never pretends that a request is "in progress" or "done" unless a real backend is later added to provide those states. Without the webhook, the request history shows that the WhatsApp message was prepared. With a successful webhook delivery it shows that the request was sent to reception.
 
 ## TBC Checkout
 
@@ -91,7 +111,7 @@ The UI tells guests to use only the configured asset/network and to send the tra
 
 ## Guest QR
 
-`/guest/qr` generates a high-error-correction QR pointing to `/guest`. It can be printed for reception, bedside cards or room folders. Because the QR URL is built from `NEXT_PUBLIC_SITE_URL`, connect the final hotel domain before printing permanent cards.
+`/guest/qr` generates a high-error-correction generic QR pointing to `/guest`. Add a room query to create a room-specific print card, for example `/guest/qr?room=204`; that QR opens `/guest?room=204` with the room number already filled in. Use it for reception, bedside cards or room folders. Because the QR URL is built from `NEXT_PUBLIC_SITE_URL`, connect the final hotel domain before printing permanent cards.
 
 ## Google launch checklist
 
@@ -119,4 +139,4 @@ The UI tells guests to use only the configured asset/network and to send the tra
 
 ## Important
 
-The website does not invent prices, availability, bank accounts, crypto wallets, discounts or guest reviews. Live rates and availability currently come from Booking.com. Direct-payment methods become visible only when the corresponding owner-controlled credentials/details are configured.
+The website does not invent prices, availability, bank accounts, crypto wallets, discounts, guest reviews or request statuses. Live rates and availability currently come from Booking.com. Direct-payment methods become visible only when the corresponding owner-controlled credentials/details are configured.
