@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/ru", priority: 0.9, changeFrequency: "weekly" as const },
     { path: "/ka", priority: 0.9, changeFrequency: "weekly" as const },
     { path: "/rooms", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/tbilisi-guide", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/faq", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/contact", priority: 0.7, changeFrequency: "monthly" as const },
   ];
