@@ -19,7 +19,7 @@ export default async function GuestQrPage() {
         <p>Reception · housekeeping · towels · transfer · payment · directions · reviews</p>
         <img src={dataUrl} alt="QR code opening Anna's Garden Hotel guest guide" />
         <p className="guest-qr-meta">{guestUrl}</p>
-        <button className="qr-print" onClick={undefined as never}>Use your browser’s Print command</button>
+        <p className="qr-print">Use your browser’s Print command to create a reception or room card.</p>
       </section>
     </main>
   );
