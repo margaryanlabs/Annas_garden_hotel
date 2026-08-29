@@ -9,6 +9,7 @@ import "./offers.css";
 import "./payments.css";
 import "./guest-os.css";
 import "./guest-luxe.css";
+import "./guest-room-companion.css";
 import "./guest-dock.css";
 import "./guest-overrides.css";
 import "./reception.css";
