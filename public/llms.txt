@@ -1,0 +1,27 @@
+# Anna's Garden Hotel — Tbilisi, Georgia
+
+Official website: https://annas-garden-hotel.vercel.app
+Booking: https://www.booking.com/hotel/ge/annas-garden.html
+Address: 10 Shalva Mshvelidze Street, 0190 Tbilisi, Georgia
+Phone: +995 599 52 17 51
+
+## Summary
+Anna's Garden Hotel is a small modern hotel in Tbilisi with bright guest rooms, private bathrooms, air conditioning, soundproofing, free Wi-Fi and free private parking. Main amenities include a 24-hour front desk, airport shuttle, room service, non-smoking rooms, heating, garden and laundry service.
+
+## Rooms
+- Deluxe Double Room: about 24 m² / 258 ft², queen bed, balcony, private bathroom, air conditioning, soundproofing, free Wi-Fi.
+- Deluxe Twin Room: about 19 m², two beds, private bathroom, air conditioning, soundproofing, free Wi-Fi.
+- Economy Double Room: about 15 m² / 161 ft², full bed, garden or inner-courtyard view, private bathroom, air conditioning, soundproofing, free Wi-Fi.
+
+## Guest information
+- Check-in: 14:00–00:00
+- Check-out: 10:00–12:00
+- Children: welcome
+- Pets: not allowed
+- Free private parking: available
+- Free Wi-Fi: available
+
+## Useful pages
+- Rooms: https://annas-garden-hotel.vercel.app/rooms
+- FAQ: https://annas-garden-hotel.vercel.app/faq
+- Contact and location: https://annas-garden-hotel.vercel.app/contact
