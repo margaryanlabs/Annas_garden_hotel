@@ -93,6 +93,16 @@ export async function listReceptionRequests(limit = 200) {
   return (await response.json()) as ReceptionRequest[];
 }
 
+export async function getReceptionRequestStatuses(ids: string[]) {
+  if (!receptionStoreConfigured()) return [] as Pick<ReceptionRequest, "id" | "status" | "updated_at" | "completed_at">[];
+  const wanted = new Set(ids.map((id) => id.replace(/[^A-Za-z0-9:_-]/g, "").slice(0, 40)).filter(Boolean).slice(0, 30));
+  if (!wanted.size) return [];
+  const rows = await listReceptionRequests(500);
+  return rows
+    .filter((row) => wanted.has(row.id))
+    .map((row) => ({ id: row.id, status: row.status, updated_at: row.updated_at, completed_at: row.completed_at }));
+}
+
 export async function updateReceptionRequest(id: string, patch: Partial<Pick<ReceptionRequest, "status" | "priority" | "assigned_to" | "operator_note">>) {
   if (!receptionStoreConfigured()) throw new Error("Reception store is not configured");
   const payload: Record<string, unknown> = { ...patch, updated_at: new Date().toISOString() };
