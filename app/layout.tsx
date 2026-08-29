@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import "./seo.css";
-import { ADDRESS, BOOKING_URL, HOTEL_AMENITIES, MAPS_URL, PHONE_DISPLAY, PHONE_HREF, SITE_URL } from "../lib/site";
+import { BOOKING_URL, HOTEL_AMENITIES, MAPS_URL, PHONE_DISPLAY, PHONE_HREF, SITE_URL } from "../lib/site";
 
 const HERO = "/media/hero-user.webp?v=exact-hero-20260828";
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
@@ -16,7 +16,10 @@ export const metadata: Metadata = {
   },
   description: "Anna's Garden Hotel in Tbilisi — bright, comfortable rooms with private bathrooms, air conditioning, free Wi-Fi, free private parking and a 24-hour front desk.",
   applicationName: "Anna's Garden Hotel",
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: { "en-US": SITE_URL, "ru-RU": `${SITE_URL}/ru`, "ka-GE": `${SITE_URL}/ka`, "x-default": SITE_URL },
+  },
   manifest: "/manifest.webmanifest",
   robots: {
     index: true,
@@ -30,6 +33,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "Anna's Garden Hotel",
     locale: "en_US",
+    alternateLocale: ["ru_RU", "ka_GE"],
     images: [{ url: HERO, alt: "Anna's Garden Hotel room in Tbilisi" }],
   },
   twitter: {
@@ -94,7 +98,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
         <nav className="seo-footer-links" aria-label="Hotel information">
-          <a href="/rooms">Rooms</a><a href="/faq">FAQ</a><a href="/contact">Contact & Location</a><a href={BOOKING_URL} target="_blank" rel="noreferrer">Booking.com ↗</a>
+          <a href="/rooms">Rooms</a><a href="/faq">FAQ</a><a href="/contact">Contact & Location</a><a href="/ru" lang="ru">RU</a><a href="/ka" lang="ka">KA</a><a href={BOOKING_URL} target="_blank" rel="noreferrer">Booking.com ↗</a>
         </nav>
         <aside className="booking-dock" aria-label="Quick hotel actions">
           <a href={BOOKING_URL} target="_blank" rel="noreferrer">Book</a><a href={PHONE_HREF}>Call</a><a href={MAPS_URL} target="_blank" rel="noreferrer">Map</a>
