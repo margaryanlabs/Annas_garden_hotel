@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { insertReceptionRequest } from "../../../../lib/reception-store";
 
 const WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "995599521751";
 const WEBHOOK = process.env.GUEST_REQUEST_WEBHOOK_URL || "";
@@ -29,9 +30,7 @@ export async function POST(request: Request) {
   const lang = clean(body.profile?.lang, 10);
   const checkOut = clean(body.profile?.checkOut, 20);
 
-  if (!type || !label || !guest || !room) {
-    return NextResponse.json({ error: "Missing request details" }, { status: 400 });
-  }
+  if (!type || !label || !guest || !room) return NextResponse.json({ error: "Missing request details" }, { status: 400 });
 
   const normalized = {
     event: "hotel.guest_request",
@@ -56,8 +55,27 @@ export async function POST(request: Request) {
   ].filter(Boolean).join("\n");
   const whatsappUrl = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(whatsappText)}`;
 
+  let stored = false;
+  try {
+    const result = await insertReceptionRequest({
+      id,
+      requestType: type,
+      label,
+      message,
+      note,
+      guestName: guest,
+      room,
+      lang,
+      checkoutDate: checkOut,
+      source: "guest_qr",
+    });
+    stored = result.stored;
+  } catch (error) {
+    console.error("guest request store failed", error);
+  }
+
   if (!WEBHOOK) {
-    return NextResponse.json({ delivered: false, mode: "whatsapp", whatsappUrl, id });
+    return NextResponse.json({ delivered: stored, stored, mode: stored ? "reception" : "whatsapp", whatsappUrl, id });
   }
 
   try {
@@ -72,12 +90,9 @@ export async function POST(request: Request) {
       signal: AbortSignal.timeout(8000),
     });
 
-    if (!response.ok) {
-      return NextResponse.json({ delivered: false, mode: "whatsapp", whatsappUrl, id, webhookStatus: response.status });
-    }
-
-    return NextResponse.json({ delivered: true, mode: "webhook", id });
+    if (!response.ok) return NextResponse.json({ delivered: stored, stored, mode: stored ? "reception" : "whatsapp", whatsappUrl, id, webhookStatus: response.status });
+    return NextResponse.json({ delivered: true, stored, mode: stored ? "reception+webhook" : "webhook", id });
   } catch {
-    return NextResponse.json({ delivered: false, mode: "whatsapp", whatsappUrl, id });
+    return NextResponse.json({ delivered: stored, stored, mode: stored ? "reception" : "whatsapp", whatsappUrl, id });
   }
 }
