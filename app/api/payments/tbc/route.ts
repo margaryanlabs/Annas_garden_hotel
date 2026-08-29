@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createTbcPayment, isTbcConfigured } from "../../../../lib/tbc";
+import { upsertPaymentEvent } from "../../../../lib/reception-operations";
 import { SITE_URL } from "../../../../lib/site";
 
 export const dynamic = "force-dynamic";
@@ -39,6 +40,19 @@ export async function POST(request: NextRequest) {
 
     if (!redirectUrl) {
       return NextResponse.json({ error: "TBC did not return a checkout URL.", providerResponse: payload }, { status: 502 });
+    }
+
+    try {
+      await upsertPaymentEvent({
+        id: `tbc:${bookingRef}`,
+        bookingRef,
+        provider: "tbc",
+        amount,
+        currency,
+        status: "initiated",
+      });
+    } catch (error) {
+      console.warn("Unable to persist TBC initiation for reception", error);
     }
 
     return NextResponse.json({ redirectUrl, bookingRef });
