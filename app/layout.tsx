@@ -9,6 +9,8 @@ import "./offers.css";
 import "./payments.css";
 import "./guest-os.css";
 import "./guest-overrides.css";
+import "./reception.css";
+import "./reception-shell.css";
 import SiteEnhancements from "./components/SiteEnhancements";
 import { BOOKING_URL, HOTEL_AMENITIES, MAPS_URL, PHONE_DISPLAY, PHONE_HREF, SITE_URL } from "../lib/site";
 
