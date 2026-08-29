@@ -5,6 +5,7 @@ import "./seo.css";
 import "./stay-tools.css";
 import "./guide.css";
 import "./reviews.css";
+import "./offers.css";
 import "./payments.css";
 import SiteEnhancements from "./components/SiteEnhancements";
 import { BOOKING_URL, HOTEL_AMENITIES, MAPS_URL, PHONE_DISPLAY, PHONE_HREF, SITE_URL } from "../lib/site";
