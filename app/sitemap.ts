@@ -11,20 +11,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/tbilisi-guide", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/faq", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/contact", priority: 0.7, changeFrequency: "monthly" as const },
+    { path: "/terms", priority: 0.3, changeFrequency: "yearly" as const },
+    { path: "/privacy", priority: 0.3, changeFrequency: "yearly" as const },
+    { path: "/refund-policy", priority: 0.3, changeFrequency: "yearly" as const },
+    { path: "/service-policy", priority: 0.3, changeFrequency: "yearly" as const },
   ];
 
   return [
-    ...staticRoutes.map((route) => ({
-      url: `${SITE_URL}${route.path}`,
-      lastModified: now,
-      changeFrequency: route.changeFrequency,
-      priority: route.priority,
-    })),
-    ...ROOMS.map((room) => ({
-      url: `${SITE_URL}/rooms/${room.slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
+    ...staticRoutes.map((route) => ({ url: `${SITE_URL}${route.path}`, lastModified: now, changeFrequency: route.changeFrequency, priority: route.priority })),
+    ...ROOMS.map((room) => ({ url: `${SITE_URL}/rooms/${room.slug}`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 })),
   ];
 }
