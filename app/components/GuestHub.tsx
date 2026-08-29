@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { BOOKING_URL, MAPS_URL } from "../../lib/site";
+import GuestRoomCompanion from "./GuestRoomCompanion";
 
 type Lang = "en" | "ru" | "ka";
 type Profile = { name: string; room: string; lang: Lang; checkOut: string };
@@ -103,17 +104,18 @@ export default function GuestHub({ initialRoom = "" }: { initialRoom?: string })
     setProfile({ ...draft, name: draft.name.trim(), room: draft.room.trim() });
   }
 
-  async function sendRequest(type: string, label: string, body: string) {
+  async function sendRequest(type: string, label: string, body: string, overrideNote?: string) {
     if (!profile) return;
     const id = makeId();
-    const fullMessage = `Anna's Garden Hotel guest request\nTicket: ${id}\nGuest: ${profile.name}\nRoom: ${profile.room}\nRequest: ${label}\n${body}${note.trim() ? `\nNote: ${note.trim()}` : ""}`;
+    const requestNote = overrideNote ?? note;
+    const fullMessage = `Anna's Garden Hotel guest request\nTicket: ${id}\nGuest: ${profile.name}\nRoom: ${profile.room}\nRequest: ${label}\n${body}${requestNote.trim() ? `\nNote: ${requestNote.trim()}` : ""}`;
     let status: Ticket["status"] = "prepared";
     let fallbackUrl = wa(fullMessage);
     try {
       const response = await fetch("/api/guest/request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id, type, label, message: body, note, profile }),
+        body: JSON.stringify({ id, type, label, message: body, note: requestNote, profile }),
       });
       const data = await response.json().catch(() => ({}));
       if (response.ok && data.delivered) status = "sent";
@@ -124,6 +126,7 @@ export default function GuestHub({ initialRoom = "" }: { initialRoom?: string })
     const next = [ticket, ...tickets].slice(0, 12);
     setTickets(next);
     localStorage.setItem("annas-garden-guest-tickets", JSON.stringify(next));
+    window.dispatchEvent(new Event("annas:guest-tickets"));
     setNote("");
     setActive(null);
     if (status === "prepared") window.open(fallbackUrl, "_blank", "noopener,noreferrer");
@@ -188,6 +191,8 @@ export default function GuestHub({ initialRoom = "" }: { initialRoom?: string })
         </div>
         <div className="guest-stay-meta"><span>CHECKOUT</span><strong>{profile.checkOut || "—"}</strong><small>Reception is available 24 hours.</small></div>
       </section>
+
+      <GuestRoomCompanion profile={profile} onRequest={sendRequest} />
 
       <section className="guest-command-section">
         <div className="guest-section-head"><p className="guest-kicker">ONE TAP SERVICE</p><h2>{t.quick}</h2><p>{t.quickBody}</p></div>
