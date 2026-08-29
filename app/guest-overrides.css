@@ -1,0 +1,1 @@
+body:has(.guest-os)>.seo-footer-links,body:has(.guest-os)>.booking-dock,body:has(.guest-qr-page)>.seo-footer-links,body:has(.guest-qr-page)>.booking-dock{display:none!important}body:has(.guest-os),body:has(.guest-qr-page){background:#f4f0e7}.guest-os+.seo-footer-links,.guest-qr-page+.seo-footer-links{display:none!important}
