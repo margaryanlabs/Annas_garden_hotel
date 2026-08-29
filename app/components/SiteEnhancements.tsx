@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
 import StayTools from "./StayTools";
+import ReviewsShowcase from "./ReviewsShowcase";
 
 type Lang = "en" | "ru" | "ka";
 
@@ -44,5 +45,11 @@ export default function SiteEnhancements() {
   }, [pathname]);
 
   if (pathname !== "/" || !mount) return null;
-  return createPortal(<StayTools lang={lang} />, mount);
+
+  return (
+    <>
+      <ReviewsShowcase lang={lang} />
+      {createPortal(<StayTools lang={lang} />, mount)}
+    </>
+  );
 }
